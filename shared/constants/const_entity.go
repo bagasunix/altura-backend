@@ -22,3 +22,17 @@ const (
 	LeadPriorityHigh   LeadPriority = "high"
 	LeadPriorityUrgent LeadPriority = "urgent"
 )
+
+type TypeProperty string
+
+const (
+	ForSale TypeProperty = "for_sale"
+	ForRent TypeProperty = "for_rent"
+)
+
+type StatusProperty string
+
+const (
+	ActiveProperty    StatusProperty = "active_property"
+	NonActiveProperty StatusProperty = "nonactive_property"
+)
