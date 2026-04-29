@@ -2,6 +2,7 @@ package repositories
 
 import (
 	"context"
+	"time"
 
 	"github.com/gofrs/uuid"
 
@@ -28,4 +29,10 @@ type PropertyRepository interface {
 	Create(ctx context.Context, product *entities.Property) (*entities.Property, error)
 	Update(ctx context.Context, product *entities.Property) (*entities.Property, error)
 	Delete(ctx context.Context, id uuid.UUID) error
+}
+
+type PropertyCachePort interface {
+	GetByID(ctx context.Context, id uuid.UUID) (*entities.Property, error)
+	SetByID(ctx context.Context, product *entities.Property, ttl time.Duration) error
+	DeleteByID(ctx context.Context, id uuid.UUID) error
 }
