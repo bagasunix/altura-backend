@@ -3,10 +3,12 @@ package entities
 import (
 	"encoding/json"
 	"time"
+
+	"github.com/gofrs/uuid"
 )
 
 type N8nEvent struct {
-	ID           string
+	ID           uuid.UUID
 	EventType    string
 	EntityType   string
 	EntityID     *string

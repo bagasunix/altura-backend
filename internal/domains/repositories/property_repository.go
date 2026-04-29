@@ -6,6 +6,7 @@ import (
 
 	"github.com/gofrs/uuid"
 
+	"altura-property/internal/adapters/outbound/persistence/models"
 	"altura-property/internal/domains/entities"
 	"altura-property/shared/constants"
 )
@@ -23,11 +24,11 @@ type PropertyFilter struct {
 }
 
 type PropertyRepository interface {
-	FindByID(ctx context.Context, id uuid.UUID) (*entities.Property, error)
-	FindByName(ctx context.Context, name string) (*entities.Property, error)
-	FindAll(ctx context.Context, filter PropertyFilter) ([]*entities.Property, int, error)
-	Create(ctx context.Context, product *entities.Property) (*entities.Property, error)
-	Update(ctx context.Context, product *entities.Property) (*entities.Property, error)
+	FindByID(ctx context.Context, id uuid.UUID) (result models.SingleResult[*entities.Property])
+	FindByName(ctx context.Context, name string) (result models.SingleResult[*entities.Property])
+	FindAll(ctx context.Context, filter PropertyFilter) (result models.SliceResult[*entities.Property])
+	Create(ctx context.Context, product *entities.Property) (result models.SingleResult[*entities.Property])
+	Update(ctx context.Context, product *entities.Property) (result models.SingleResult[*entities.Property])
 	Delete(ctx context.Context, id uuid.UUID) error
 }
 

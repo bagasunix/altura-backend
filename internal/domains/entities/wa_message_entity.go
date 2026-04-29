@@ -3,10 +3,12 @@ package entities
 import (
 	"encoding/json"
 	"time"
+
+	"github.com/gofrs/uuid"
 )
 
 type WAMessage struct {
-	ID        string
+	ID        uuid.UUID
 	SessionID string
 	LeadID    *string
 
