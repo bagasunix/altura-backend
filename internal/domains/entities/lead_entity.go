@@ -3,7 +3,7 @@ package entities
 import (
 	"time"
 
-	"altura-property/shared/constant"
+	"altura-property/shared/constants"
 )
 
 type Lead struct {
@@ -15,8 +15,8 @@ type Lead struct {
 	Budget string
 	Source string
 
-	Status     constant.LeadStatus
-	Priority   constant.LeadPriority
+	Status     constants.LeadStatus
+	Priority   constants.LeadPriority
 	AssignedTo *string
 
 	UTMSource   string
