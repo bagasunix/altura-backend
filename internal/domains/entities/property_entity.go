@@ -2,7 +2,7 @@ package entities
 
 import "time"
 
-type Listing struct {
+type Property struct {
 	ID       string
 	Title    string
 	Location string
